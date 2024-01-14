@@ -1,5 +1,6 @@
 package com.learning.cloudgateway.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @EnableWebFluxSecurity
 public class OktaOAuth2WebSecurity {
 
+    @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity httpSecurity) {
 
         return httpSecurity
