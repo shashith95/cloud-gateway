@@ -1,0 +1,33 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: order-service
+            uri: lb://order-service
+            predicates:
+              - Path=/api/v1/order/**
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/api/v1/product/**
+          - id: payment-service
+            uri: lb://payment-service
+            predicates:
+              - Path=/api/v1/payment/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8080/eureka}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
