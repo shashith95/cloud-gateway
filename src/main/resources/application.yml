@@ -47,6 +47,7 @@ spring:
                 redis-rate-limiter.replenishRate: 1
                 redis-rate-limiter.burstCapacity: 1
 
+
 eureka:
   client:
     service-url:
@@ -56,4 +57,10 @@ management:
   tracing:
     sampling:
       probability: 1.0
-
+okta:
+  oauth2:
+    audience: api://default
+    issuer: https://dev-14992024.okta.com/oauth2/default
+    client-id: 0oaegd5kajm5M6zFi5d7
+    client-secret: bhCrYLNiRAyXqeG3JzWrh0NaKRMYZW8OiO6uT-6GFGH5WS-nmT6FqRQY7SbnvTzy
+    scopes: openid, profile, email, offline_access
